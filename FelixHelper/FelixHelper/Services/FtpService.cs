@@ -24,8 +24,7 @@ namespace FelixHelper.Services
         public bool UploadFile(Stream stream)
         {
             _client.AutoConnect();
-            var status = _client.UploadStream(stream, _hostingConfig.FilePath);
-
+            var status = _client.UploadStream(stream, _hostingConfig.FilePath, FtpRemoteExists.OverwriteInPlace);
             return status == FtpStatus.Success;
         }
     }
